@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_many :private_message_sent, class_name: 'PrivateMessage', foreign_key: :sender_id
     has_many :private_message_recieved, class_name: 'PrivateMessage', foreign_key: :recieved_id
     
-  end
+end
 
 
 

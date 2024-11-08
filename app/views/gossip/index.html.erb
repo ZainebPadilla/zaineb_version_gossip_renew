@@ -1,0 +1,15 @@
+<h1>Gossip's Index</h1>
+<p>Find me in app/views/gossip/index.html.erb</p>
+
+
+<div class="col-sm-6">
+    <%= @gossip.each do |gossip| %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"> <%= gossip.title %> </h5>
+        <p class="card-text"> <%= gossip.user.first_name %> <%= gossip.user.last_name %> </p>
+        <a href="#" class="btn btn-primary">En savoir plus</a>
+      </div>
+    </div>
+    <% end %> 
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_08_094052) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_08_174645) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +41,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_08_094052) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_gossips_on_user_id"
   end
 
   create_table "private_messages", force: :cascade do |t|
@@ -63,8 +65,12 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_08_094052) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "city_id", null: false
+    t.index ["city_id"], name: "index_users_on_city_id"
   end
 
   add_foreign_key "gossip_tags", "gossips"
   add_foreign_key "gossip_tags", "tags"
+  add_foreign_key "gossips", "users"
+  add_foreign_key "users", "cities"
 end
